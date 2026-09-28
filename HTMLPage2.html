@@ -1,0 +1,480 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>broser comunity — игры и сериалы</title>
+    <meta name="description" content="broser comunity — небольшая студия игр и сериалов. Знакомьтесь с Void Silence: хоррор-шутером о призраках на заброшке.">
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #090909;
+            --fg: #f1f0eb;
+            --muted: #a5a5a1;
+            --line: #343434
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 32px
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: Arial,Helvetica,sans-serif
+        }
+
+        a {
+            color: inherit
+        }
+
+            a:focus-visible {
+                outline: 2px solid white;
+                outline-offset: 7px
+            }
+
+        .wrap {
+            max-width: 1440px;
+            margin: auto;
+            padding: 0 6%
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 700
+        }
+
+            .brand img {
+                width: 48px;
+                height: 48px;
+                object-fit: contain
+            }
+
+        nav {
+            display: flex;
+            gap: 32px
+        }
+
+            nav a {
+                text-decoration: none;
+                font-size: 14px;
+                color: #c3c3bf
+            }
+
+                nav a:hover {
+                    color: white
+                }
+
+        .eyebrow {
+            font-family: monospace;
+            font-size: 14px;
+            letter-spacing: .1em;
+            text-transform: uppercase
+        }
+
+        .hero {
+            padding: 80px 0 65px;
+            position: relative
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            color: var(--muted)
+        }
+
+        h1 {
+            font-size: clamp(60px,10.5vw,156px);
+            font-weight: 900;
+            line-height: .91;
+            letter-spacing: -.065em;
+            margin: 44px 0 36px;
+            max-width: 1000px
+        }
+
+        .outline {
+            color: transparent;
+            -webkit-text-stroke: 1px #c8c8c3
+        }
+
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px
+        }
+
+            .hero-bottom p {
+                max-width: 400px;
+                color: var(--muted);
+                font-size: 18px;
+                line-height: 1.6;
+                margin: 0
+            }
+
+        .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 48px;
+            text-decoration: none;
+            border-bottom: 1px solid #73736f;
+            padding: 14px 0;
+            font-size: 16px
+        }
+
+            .link span {
+                font-size: 24px
+            }
+
+        .project {
+            border: 1px solid #41413e;
+            margin: 0 0 96px;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 85% 35%,#30312f 0, #171816 27%,#111210 62%)
+        }
+
+            .project:before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: repeating-linear-gradient(0deg,transparent,transparent 3px,#ffffff03 4px);
+                pointer-events: none
+            }
+
+        .project-inner {
+            position: relative;
+            padding: 46px 5% 40px
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            color: #c3c5bd
+        }
+
+        .status {
+            font-family: monospace;
+            font-size: 14px;
+            border: 1px solid #65665e;
+            padding: 8px 12px
+        }
+
+        .project h2 {
+            font-size: clamp(70px,12vw,176px);
+            line-height: .85;
+            letter-spacing: -.06em;
+            margin: 72px 0 32px;
+            font-weight: 900;
+            max-width: 800px
+        }
+
+            .project h2 span {
+                display: block;
+                color: #9b9e93
+            }
+
+        .intro {
+            font-size: clamp(20px,2.4vw,32px);
+            max-width: 640px;
+            line-height: 1.35;
+            letter-spacing: -.025em
+        }
+
+        .project-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 40px;
+            border-top: 1px solid #454740;
+            margin-top: 48px;
+            padding-top: 24px
+        }
+
+            .project-bottom p {
+                color: #b8bcb1;
+                max-width: 550px;
+                font-size: 16px;
+                line-height: 1.6;
+                margin: 0
+            }
+
+        .tag {
+            white-space: nowrap;
+            font-family: monospace;
+            font-size: 14px;
+            color: #b8bcb1
+        }
+
+        .section-top {
+            display: flex;
+            gap: 40px;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 40px
+        }
+
+            .section-top h2 {
+                font-size: clamp(32px,4vw,54px);
+                letter-spacing: -.045em;
+                margin: 0
+            }
+
+            .section-top .eyebrow {
+                color: var(--muted)
+            }
+
+        .mechanics {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 40px;
+            margin-bottom: 110px
+        }
+
+        .mechanic {
+            border-top: 1px solid var(--line);
+            padding-top: 24px
+        }
+
+        .number {
+            font: 14px monospace;
+            color: #95968f
+        }
+
+        .mechanic h3 {
+            font-size: 24px;
+            letter-spacing: -.03em;
+            margin: 25px 0 15px
+        }
+
+        .mechanic p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--muted);
+            margin: 0
+        }
+
+        .studio {
+            border-top: 1px solid var(--line);
+            padding: 56px 0 80px;
+            display: grid;
+            grid-template-columns: 1fr 1.7fr;
+            gap: 70px
+        }
+
+        .studio-mark {
+            display: flex;
+            align-items: start;
+            gap: 20px
+        }
+
+            .studio-mark img {
+                width: 100px;
+                height: 100px
+            }
+
+        .studio h2 {
+            font-size: clamp(30px,4vw,56px);
+            line-height: 1.07;
+            letter-spacing: -.04em;
+            margin: 0 0 25px
+        }
+
+        .studio p {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0
+        }
+
+        .studio-label {
+            font: 14px monospace;
+            color: var(--muted);
+            margin-top: 15px
+        }
+
+        .footer {
+            padding: 25px 0 32px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            color: #a5a5a1;
+            font-size: 14px
+        }
+
+            .footer a {
+                text-decoration: none
+            }
+
+        @media(max-width:700px) {
+            .wrap {
+                padding: 0 6%
+            }
+
+            header {
+                padding: 18px 0
+            }
+
+            .brand {
+                font-size: 14px;
+                gap: 8px
+            }
+
+                .brand img {
+                    width: 36px;
+                    height: 36px
+                }
+
+            nav {
+                gap: 16px
+            }
+
+                nav a {
+                    font-size: 14px
+                }
+
+            .hero {
+                padding: 50px 0 42px
+            }
+
+            .hero-top {
+                font-size: 12px
+            }
+
+                .hero-top span:last-child {
+                    display: none
+                }
+
+            h1 {
+                margin: 32px 0
+            }
+
+            .hero-bottom {
+                display: block
+            }
+
+                .hero-bottom p {
+                    font-size: 16px
+                }
+
+                .hero-bottom .link {
+                    margin-top: 18px
+                }
+
+            .project {
+                margin-bottom: 60px
+            }
+
+            .project-inner {
+                padding: 25px 7%
+            }
+
+            .project-meta {
+                display: block
+            }
+
+            .status {
+                display: inline-block;
+                margin-top: 18px
+            }
+
+            .project h2 {
+                margin-top: 50px
+            }
+
+            .project-bottom {
+                display: block;
+                margin-top: 30px
+            }
+
+            .tag {
+                display: block;
+                margin-top: 22px
+            }
+
+            .section-top {
+                display: block
+            }
+
+                .section-top .eyebrow {
+                    display: block;
+                    margin-bottom: 18px
+                }
+
+            .mechanics {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                margin-bottom: 60px
+            }
+
+            .mechanic h3 {
+                margin-top: 16px
+            }
+
+            .studio {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 35px 0 50px
+            }
+
+            .studio-mark img {
+                width: 70px;
+                height: 70px
+            }
+
+            .studio p {
+                font-size: 16px
+            }
+
+            .footer {
+                font-size: 12px
+            }
+
+            .section-top h2 {
+                font-size: 36px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header><a class="brand" href="#" aria-label="broser comunity — новая компания"><img src="logo.jpg" alt="Логотип broser comunity" width="48" height="48">broser comunity</a><nav aria-label="Основная навигация"><a href="#game">Игра</a><a href="#studio">Студия</a></nav></header>
+        <main>
+            <section class="hero" aria-labelledby="hero-title"><div class="hero-top eyebrow"><span>Независимая студия / игры и сериалы</span><span>broser comunity</span></div><h1 id="hero-title">Маленькая<br>но,<br><span class="outline">Удаленькая.</span></h1><div class="hero-bottom"><p>Нас двое. Мы создаём игры и сериалы.<br>Первое знакомство — с миром Void Silence.</p><a class="link" href="#game">Наша первая игра <span aria-hidden="true">↘</span></a></div></section>
+            <section class="project" id="game" aria-labelledby="game-title"><div class="project-inner"><div class="project-meta"><span class="eyebrow">01 / Хоррор-шутер</span><span class="status">В доработке · исправляем ошибки</span></div><h2 id="game-title">VOID<span>SILENCE</span></h2><p class="intro">Ты приехал на заброшку.<br>У тебя игрушечный пистолет.<br>А призраки — настоящая проблема.</p><div class="project-bottom"><p>Охоться на призраков, зарабатывай игровые доллары и улучшай своё оружие. Здесь даже тишина не означает, что ты в безопасности.</p><span class="tag">ХОРРОР / ШУТЕР / МУЛЬТИПЛЕЕР</span></div></div></section>
+            <section aria-labelledby="rules-title"><div class="section-top"><span class="eyebrow">Внутри Void Silence</span><h2 id="rules-title">Не все призраки одинаковы.</h2></div><div class="mechanics"><article class="mechanic"><span class="number">01 / ОХОТА</span><h3>Никогда не знаешь, кто рядом</h3><p>Призраки появляются случайным образом. Одни просто стоят, другие атакуют, а некоторые остаются невидимыми.</p></article><article class="mechanic"><span class="number">02 / УЛУЧШЕНИЯ</span><h3>Каждый призрак — 5 $</h3><p>Получай по 5 игровых долларов за каждого уничтоженного призрака. Покупай оружие, прицелы и улучшения.</p></article><article class="mechanic"><span class="number">03 / МУЛЬТИПЛЕЕР</span><h3>На заброшку — вместе</h3><p>В Void Silence есть мультиплеер. Раздели встречу с неизвестным с другими игроками.</p></article></div></section>
+            <section class="studio" id="studio" aria-labelledby="studio-title"><div class="studio-mark"><img src="logo.jpg" alt="" width="100" height="100"><div class="studio-label">О СТУДИИ<br><br>broser comunity</div></div><div><h2 id="studio-title">Два человека -<br>Два брата.</h2><p>Мы — ,братья, вот от туда и пошло - BROSER comunity :3</p></div></section>
+        </main><footer class="footer"><span>© 2026 broser comunity</span><a href="#">Наверх ↑</a></footer>
+    </div>
+</body>
+</html>
